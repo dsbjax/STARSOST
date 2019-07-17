@@ -35,8 +35,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +70,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UIElements\DashboardButton.xaml.cs">
+      <DependentUpon>DashboardButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIElements\MainDashboard.xaml.cs">
+      <DependentUpon>MainDashboard.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,10 +84,63 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Database\ParrotPEReport.cs">
+      <DependentUpon>STARSdbEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ParrotPEReportMessage.cs">
+      <DependentUpon>STARSdbEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\RadarRegistrationReport.cs">
+      <DependentUpon>STARSdbEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\RadarSummaryReport.cs">
+      <DependentUpon>STARSdbEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\RegistrationReport.cs">
+      <DependentUpon>STARSdbEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\RTQCRadarReport.cs">
+      <DependentUpon>STARSdbEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\RTQCReport.cs">
+      <DependentUpon>STARSdbEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\STARSdbEntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STARSdbEntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\STARSdbEntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STARSdbEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\STARSdbEntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STARSdbEntityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\SystemEventMessaage.cs">
+      <DependentUpon>STARSdbEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\SystemMessageDictionary.cs">
+      <DependentUpon>STARSdbEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\TargetSummaryReport.cs">
+      <DependentUpon>STARSdbEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UIElements\DashboardButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIElements\MainDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -86,6 +160,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Database\STARSdbEntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>STARSdbEntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\STARSdbEntityModel.edmx.diagram">
+      <DependentUpon>STARSdbEntityModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,5 +176,36 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Importers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\STARSdbEntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>STARSdbEntityModel.edmx</DependentUpon>
+      <LastGenOutput>STARSdbEntityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\STARSdbEntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>STARSdbEntityModel.edmx</DependentUpon>
+      <LastGenOutput>STARSdbEntityModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\dsbSoftware\MyLibrary\WPFLibrary\WPFLibrary.csproj">
+      <Project>{11ec5682-364e-4746-a7d4-d5e27a4c08e6}</Project>
+      <Name>WPFLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

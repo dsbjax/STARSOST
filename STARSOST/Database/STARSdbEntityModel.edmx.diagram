@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1877fd062f5b451da787e7f282672d27" Name="Diagram1">
+        <EntityTypeShape EntityType="STARSdbModel.ParrotPEReportMessage" Width="1.5" PointX="8" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="STARSdbModel.ParrotPEReport" Width="1.5" PointX="5.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="STARSdbModel.RadarRegistrationReport" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="STARSdbModel.RadarSummaryReport" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="STARSdbModel.RegistrationReport" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STARSdbModel.RTQCRadarReport" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STARSdbModel.RTQCReport" Width="1.5" PointX="5.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="STARSdbModel.SystemEventMessaage" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="STARSdbModel.SystemMessageDictionary" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="STARSdbModel.TargetSummaryReport" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="STARSdbModel.FK_ParrotPEReportParrotPEReportMessage" ManuallyRouted="false" />
+        <AssociationConnector Association="STARSdbModel.FK_RegistrationReportRadarRegistrationReport" ManuallyRouted="false" />
+        <AssociationConnector Association="STARSdbModel.FK_TargetSummaryReportRadarSummaryReport" ManuallyRouted="false" />
+        <AssociationConnector Association="STARSdbModel.FK_RTQCReportRTQCRadarReport" ManuallyRouted="false" />
+        <AssociationConnector Association="STARSdbModel.FK_SystemMessageDictionaryEntrySystemEventMessaage" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

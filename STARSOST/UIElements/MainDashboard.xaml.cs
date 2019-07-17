@@ -12,21 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using STARSOST.Database;
 
-namespace STARSOST
+namespace STARSOST.UIElements
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainDashboard.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainDashboard : UserControl
     {
-        private STARSdbEntity sdbEntity = new STARSdbEntity();
-
-        public MainWindow()
+        public MainDashboard()
         {
             InitializeComponent();
-            sdbEntity.Database.CreateIfNotExists();
         }
     }
 }

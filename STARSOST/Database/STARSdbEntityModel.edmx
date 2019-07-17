@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="STARSdbModel.Store" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ParrotPEReportMessages">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Timestamp" Type="datetime" Nullable="false" />
+          <Property Name="Radar" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Target" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Count" Type="smallint" Nullable="false" />
+          <Property Name="AdaptedRange" Type="smallint" Nullable="false" />
+          <Property Name="MeanRange" Type="smallint" Nullable="false" />
+          <Property Name="StdDevRange" Type="smallint" Nullable="false" />
+          <Property Name="AdaptedAzimuth" Type="smallint" Nullable="false" />
+          <Property Name="MeanAzimuth" Type="smallint" Nullable="false" />
+          <Property Name="StdDevAzimuth" Type="smallint" Nullable="false" />
+          <Property Name="Reliability" Type="smallint" Nullable="false" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
+          <Property Name="ParrotPEReportReportID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ParrotPEReports">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Filename" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="ImportTimestamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RadarRegistrationReports">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Radar" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="TestRadar" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Timestamp" Type="datetime" Nullable="false" />
+          <Property Name="CurrentSampleSize" Type="int" Nullable="false" />
+          <Property Name="AdaptedSampleSize" Type="int" Nullable="false" />
+          <Property Name="RecommendedRange" Type="int" Nullable="false" />
+          <Property Name="DifferenceRange" Type="int" Nullable="false" />
+          <Property Name="RecommendedAzimuth" Type="int" Nullable="false" />
+          <Property Name="DifferenceAzimuth" Type="int" Nullable="false" />
+          <Property Name="RegistrationReportReportID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RadarSummaryReports">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Radar" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="ReportMessages" Type="int" Nullable="false" />
+          <Property Name="Seconds" Type="int" Nullable="false" />
+          <Property Name="Scans" Type="int" Nullable="false" />
+          <Property Name="RadarOnly" Type="int" Nullable="false" />
+          <Property Name="BeaconOnly" Type="int" Nullable="false" />
+          <Property Name="RadarReinforcedBeacon" Type="int" Nullable="false" />
+          <Property Name="InvalidMode2" Type="int" Nullable="false" />
+          <Property Name="InvalidMode3A" Type="int" Nullable="false" />
+          <Property Name="InvalidModeC" Type="int" Nullable="false" />
+          <Property Name="Correlated" Type="int" Nullable="false" />
+          <Property Name="Uncorrelated" Type="int" Nullable="false" />
+          <Property Name="ReflectionSurpressed" Type="int" Nullable="false" />
+          <Property Name="MosaicFiltered" Type="int" Nullable="false" />
+          <Property Name="TotalFiltered" Type="int" Nullable="false" />
+          <Property Name="GeographicFiltered" Type="int" Nullable="false" />
+          <Property Name="RunLength" Type="int" Nullable="false" />
+          <Property Name="Confidence" Type="int" Nullable="false" />
+          <Property Name="ErrorRatesSeconds" Type="int" Nullable="false" />
+          <Property Name="InterfaceAPercentage" Type="int" Nullable="false" />
+          <Property Name="InterfaceBPercentage" Type="int" Nullable="false" />
+          <Property Name="TargetSummaryReportReportID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegistrationReports">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Filename" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="ImportTimestamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RTQCRadarReports">
+          <Key>
+            <PropertyRef Name="RadarReportID" />
+          </Key>
+          <Property Name="RadarReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Radar" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="SamplingInterval" Type="int" Nullable="false" />
+          <Property Name="CalculatedScans" Type="int" Nullable="false" />
+          <Property Name="ReinforcementRate" Type="int" Nullable="false" />
+          <Property Name="Mode3AValidity" Type="int" Nullable="false" />
+          <Property Name="ModeCValidity" Type="int" Nullable="false" />
+          <Property Name="SearchRTQCReliability" Type="int" Nullable="false" />
+          <Property Name="BeaconRTQCReliability" Type="int" Nullable="false" />
+          <Property Name="ZeroCode" Type="int" Nullable="false" />
+          <Property Name="SearchBlipScan" Type="int" Nullable="false" />
+          <Property Name="BeaconBlipScan" Type="int" Nullable="false" />
+          <Property Name="RangeSplit" Type="int" Nullable="false" />
+          <Property Name="RTQCReportReportID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RTQCReports">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Filename" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="SampleStartTimestamp" Type="datetime" Nullable="false" />
+          <Property Name="SamplingInterval" Type="int" Nullable="false" />
+          <Property Name="ImportTimestamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SystemEventMessaages">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Timestamp" Type="datetime" Nullable="false" />
+          <Property Name="Source" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="MessageType" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="MessageNumber" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SystemMessageDictionary">
+          <Key>
+            <PropertyRef Name="MessageNumber" />
+          </Key>
+          <Property Name="MessageNumber" Type="int" Nullable="false" />
+          <Property Name="MessageTitle" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="MessageType" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="ResourceType" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Cause" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Effect" Type="nvarchar" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TargetSummaryReports">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Filename" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="ImportTimestamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ParrotPEReportParrotPEReportMessage">
+          <End Role="ParrotPEReports" Type="Self.ParrotPEReports" Multiplicity="1" />
+          <End Role="ParrotPEReportMessages" Type="Self.ParrotPEReportMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParrotPEReports">
+              <PropertyRef Name="ReportID" />
+            </Principal>
+            <Dependent Role="ParrotPEReportMessages">
+              <PropertyRef Name="ParrotPEReportReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegistrationReportRadarRegistrationReport">
+          <End Role="RegistrationReports" Type="Self.RegistrationReports" Multiplicity="1" />
+          <End Role="RadarRegistrationReports" Type="Self.RadarRegistrationReports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationReports">
+              <PropertyRef Name="ReportID" />
+            </Principal>
+            <Dependent Role="RadarRegistrationReports">
+              <PropertyRef Name="RegistrationReportReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RTQCReportRTQCRadarReport">
+          <End Role="RTQCReports" Type="Self.RTQCReports" Multiplicity="1" />
+          <End Role="RTQCRadarReports" Type="Self.RTQCRadarReports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RTQCReports">
+              <PropertyRef Name="ReportID" />
+            </Principal>
+            <Dependent Role="RTQCRadarReports">
+              <PropertyRef Name="RTQCReportReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemMessageDictionaryEntrySystemEventMessaage">
+          <End Role="SystemMessageDictionary" Type="Self.SystemMessageDictionary" Multiplicity="1" />
+          <End Role="SystemEventMessaages" Type="Self.SystemEventMessaages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemMessageDictionary">
+              <PropertyRef Name="MessageNumber" />
+            </Principal>
+            <Dependent Role="SystemEventMessaages">
+              <PropertyRef Name="MessageNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TargetSummaryReportRadarSummaryReport">
+          <End Role="TargetSummaryReports" Type="Self.TargetSummaryReports" Multiplicity="1" />
+          <End Role="RadarSummaryReports" Type="Self.RadarSummaryReports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TargetSummaryReports">
+              <PropertyRef Name="ReportID" />
+            </Principal>
+            <Dependent Role="RadarSummaryReports">
+              <PropertyRef Name="TargetSummaryReportReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="STARSdbModelStoreContainer">
+          <EntitySet Name="ParrotPEReportMessages" EntityType="Self.ParrotPEReportMessages" store:Type="Tables" />
+          <EntitySet Name="ParrotPEReports" EntityType="Self.ParrotPEReports" store:Type="Tables" />
+          <EntitySet Name="RadarRegistrationReports" EntityType="Self.RadarRegistrationReports" store:Type="Tables" />
+          <EntitySet Name="RadarSummaryReports" EntityType="Self.RadarSummaryReports" store:Type="Tables" />
+          <EntitySet Name="RegistrationReports" EntityType="Self.RegistrationReports" store:Type="Tables" />
+          <EntitySet Name="RTQCRadarReports" EntityType="Self.RTQCRadarReports" store:Type="Tables" />
+          <EntitySet Name="RTQCReports" EntityType="Self.RTQCReports" store:Type="Tables" />
+          <EntitySet Name="SystemEventMessaages" EntityType="Self.SystemEventMessaages" store:Type="Tables" />
+          <EntitySet Name="SystemMessageDictionary" EntityType="Self.SystemMessageDictionary" store:Type="Tables" />
+          <EntitySet Name="TargetSummaryReports" EntityType="Self.TargetSummaryReports" store:Type="Tables" />
+          <AssociationSet Name="FK_ParrotPEReportParrotPEReportMessage" Association="Self.FK_ParrotPEReportParrotPEReportMessage">
+            <End Role="ParrotPEReports" EntitySet="ParrotPEReports" />
+            <End Role="ParrotPEReportMessages" EntitySet="ParrotPEReportMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegistrationReportRadarRegistrationReport" Association="Self.FK_RegistrationReportRadarRegistrationReport">
+            <End Role="RegistrationReports" EntitySet="RegistrationReports" />
+            <End Role="RadarRegistrationReports" EntitySet="RadarRegistrationReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RTQCReportRTQCRadarReport" Association="Self.FK_RTQCReportRTQCRadarReport">
+            <End Role="RTQCReports" EntitySet="RTQCReports" />
+            <End Role="RTQCRadarReports" EntitySet="RTQCRadarReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemMessageDictionaryEntrySystemEventMessaage" Association="Self.FK_SystemMessageDictionaryEntrySystemEventMessaage">
+            <End Role="SystemMessageDictionary" EntitySet="SystemMessageDictionary" />
+            <End Role="SystemEventMessaages" EntitySet="SystemEventMessaages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TargetSummaryReportRadarSummaryReport" Association="Self.FK_TargetSummaryReportRadarSummaryReport">
+            <End Role="TargetSummaryReports" EntitySet="TargetSummaryReports" />
+            <End Role="RadarSummaryReports" EntitySet="RadarSummaryReports" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="STARSdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ParrotPEReportMessage">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Radar" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Target" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Count" Type="Int16" Nullable="false" />
+          <Property Name="AdaptedRange" Type="Int16" Nullable="false" />
+          <Property Name="MeanRange" Type="Int16" Nullable="false" />
+          <Property Name="StdDevRange" Type="Int16" Nullable="false" />
+          <Property Name="AdaptedAzimuth" Type="Int16" Nullable="false" />
+          <Property Name="MeanAzimuth" Type="Int16" Nullable="false" />
+          <Property Name="StdDevAzimuth" Type="Int16" Nullable="false" />
+          <Property Name="Reliability" Type="Int16" Nullable="false" />
+          <Property Name="Enabled" Type="Boolean" Nullable="false" />
+          <Property Name="ParrotPEReportReportID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ParrotPEReport" Relationship="Self.FK_ParrotPEReportParrotPEReportMessage" FromRole="ParrotPEReportMessages" ToRole="ParrotPEReports" />
+        </EntityType>
+        <EntityType Name="ParrotPEReport">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Filename" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImportTimestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ParrotPEReportMessages" Relationship="Self.FK_ParrotPEReportParrotPEReportMessage" FromRole="ParrotPEReports" ToRole="ParrotPEReportMessages" />
+        </EntityType>
+        <EntityType Name="RadarRegistrationReport">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Radar" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TestRadar" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CurrentSampleSize" Type="Int32" Nullable="false" />
+          <Property Name="AdaptedSampleSize" Type="Int32" Nullable="false" />
+          <Property Name="RecommendedRange" Type="Int32" Nullable="false" />
+          <Property Name="DifferenceRange" Type="Int32" Nullable="false" />
+          <Property Name="RecommendedAzimuth" Type="Int32" Nullable="false" />
+          <Property Name="DifferenceAzimuth" Type="Int32" Nullable="false" />
+          <Property Name="RegistrationReportReportID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RegistrationReport" Relationship="Self.FK_RegistrationReportRadarRegistrationReport" FromRole="RadarRegistrationReports" ToRole="RegistrationReports" />
+        </EntityType>
+        <EntityType Name="RadarSummaryReport">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Radar" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReportMessages" Type="Int32" Nullable="false" />
+          <Property Name="Seconds" Type="Int32" Nullable="false" />
+          <Property Name="Scans" Type="Int32" Nullable="false" />
+          <Property Name="RadarOnly" Type="Int32" Nullable="false" />
+          <Property Name="BeaconOnly" Type="Int32" Nullable="false" />
+          <Property Name="RadarReinforcedBeacon" Type="Int32" Nullable="false" />
+          <Property Name="InvalidMode2" Type="Int32" Nullable="false" />
+          <Property Name="InvalidMode3A" Type="Int32" Nullable="false" />
+          <Property Name="InvalidModeC" Type="Int32" Nullable="false" />
+          <Property Name="Correlated" Type="Int32" Nullable="false" />
+          <Property Name="Uncorrelated" Type="Int32" Nullable="false" />
+          <Property Name="ReflectionSurpressed" Type="Int32" Nullable="false" />
+          <Property Name="MosaicFiltered" Type="Int32" Nullable="false" />
+          <Property Name="TotalFiltered" Type="Int32" Nullable="false" />
+          <Property Name="GeographicFiltered" Type="Int32" Nullable="false" />
+          <Property Name="RunLength" Type="Int32" Nullable="false" />
+          <Property Name="Confidence" Type="Int32" Nullable="false" />
+          <Property Name="ErrorRatesSeconds" Type="Int32" Nullable="false" />
+          <Property Name="InterfaceAPercentage" Type="Int32" Nullable="false" />
+          <Property Name="InterfaceBPercentage" Type="Int32" Nullable="false" />
+          <Property Name="TargetSummaryReportReportID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TargetSummaryReport" Relationship="Self.FK_TargetSummaryReportRadarSummaryReport" FromRole="RadarSummaryReports" ToRole="TargetSummaryReports" />
+        </EntityType>
+        <EntityType Name="RegistrationReport">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Filename" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImportTimestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="RadarRegistrationReports" Relationship="Self.FK_RegistrationReportRadarRegistrationReport" FromRole="RegistrationReports" ToRole="RadarRegistrationReports" />
+        </EntityType>
+        <EntityType Name="RTQCRadarReport">
+          <Key>
+            <PropertyRef Name="RadarReportID" />
+          </Key>
+          <Property Name="RadarReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Radar" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SamplingInterval" Type="Int32" Nullable="false" />
+          <Property Name="CalculatedScans" Type="Int32" Nullable="false" />
+          <Property Name="ReinforcementRate" Type="Int32" Nullable="false" />
+          <Property Name="Mode3AValidity" Type="Int32" Nullable="false" />
+          <Property Name="ModeCValidity" Type="Int32" Nullable="false" />
+          <Property Name="SearchRTQCReliability" Type="Int32" Nullable="false" />
+          <Property Name="BeaconRTQCReliability" Type="Int32" Nullable="false" />
+          <Property Name="ZeroCode" Type="Int32" Nullable="false" />
+          <Property Name="SearchBlipScan" Type="Int32" Nullable="false" />
+          <Property Name="BeaconBlipScan" Type="Int32" Nullable="false" />
+          <Property Name="RangeSplit" Type="Int32" Nullable="false" />
+          <Property Name="RTQCReportReportID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RTQCReport" Relationship="Self.FK_RTQCReportRTQCRadarReport" FromRole="RTQCRadarReports" ToRole="RTQCReports" />
+        </EntityType>
+        <EntityType Name="RTQCReport">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Filename" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SampleStartTimestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SamplingInterval" Type="Int32" Nullable="false" />
+          <Property Name="ImportTimestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="RTQCRadarReports" Relationship="Self.FK_RTQCReportRTQCRadarReport" FromRole="RTQCReports" ToRole="RTQCRadarReports" />
+        </EntityType>
+        <EntityType Name="SystemEventMessaage">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Source" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MessageType" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MessageNumber" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SystemMessageDictionary" Relationship="Self.FK_SystemMessageDictionaryEntrySystemEventMessaage" FromRole="SystemEventMessaages" ToRole="SystemMessageDictionary" />
+        </EntityType>
+        <EntityType Name="SystemMessageDictionary">
+          <Key>
+            <PropertyRef Name="MessageNumber" />
+          </Key>
+          <Property Name="MessageNumber" Type="Int32" Nullable="false" />
+          <Property Name="MessageTitle" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MessageType" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ResourceType" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cause" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Effect" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SystemEventMessaages" Relationship="Self.FK_SystemMessageDictionaryEntrySystemEventMessaage" FromRole="SystemMessageDictionary" ToRole="SystemEventMessaages" />
+        </EntityType>
+        <EntityType Name="TargetSummaryReport">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Filename" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImportTimestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="RadarSummaryReports" Relationship="Self.FK_TargetSummaryReportRadarSummaryReport" FromRole="TargetSummaryReports" ToRole="RadarSummaryReports" />
+        </EntityType>
+        <Association Name="FK_ParrotPEReportParrotPEReportMessage">
+          <End Role="ParrotPEReports" Type="Self.ParrotPEReport" Multiplicity="1" />
+          <End Role="ParrotPEReportMessages" Type="Self.ParrotPEReportMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParrotPEReports">
+              <PropertyRef Name="ReportID" />
+            </Principal>
+            <Dependent Role="ParrotPEReportMessages">
+              <PropertyRef Name="ParrotPEReportReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegistrationReportRadarRegistrationReport">
+          <End Role="RegistrationReports" Type="Self.RegistrationReport" Multiplicity="1" />
+          <End Role="RadarRegistrationReports" Type="Self.RadarRegistrationReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationReports">
+              <PropertyRef Name="ReportID" />
+            </Principal>
+            <Dependent Role="RadarRegistrationReports">
+              <PropertyRef Name="RegistrationReportReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TargetSummaryReportRadarSummaryReport">
+          <End Role="TargetSummaryReports" Type="Self.TargetSummaryReport" Multiplicity="1" />
+          <End Role="RadarSummaryReports" Type="Self.RadarSummaryReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TargetSummaryReports">
+              <PropertyRef Name="ReportID" />
+            </Principal>
+            <Dependent Role="RadarSummaryReports">
+              <PropertyRef Name="TargetSummaryReportReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RTQCReportRTQCRadarReport">
+          <End Role="RTQCReports" Type="Self.RTQCReport" Multiplicity="1" />
+          <End Role="RTQCRadarReports" Type="Self.RTQCRadarReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RTQCReports">
+              <PropertyRef Name="ReportID" />
+            </Principal>
+            <Dependent Role="RTQCRadarReports">
+              <PropertyRef Name="RTQCReportReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemMessageDictionaryEntrySystemEventMessaage">
+          <End Role="SystemMessageDictionary" Type="Self.SystemMessageDictionary" Multiplicity="1" />
+          <End Role="SystemEventMessaages" Type="Self.SystemEventMessaage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemMessageDictionary">
+              <PropertyRef Name="MessageNumber" />
+            </Principal>
+            <Dependent Role="SystemEventMessaages">
+              <PropertyRef Name="MessageNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="STARSdbEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ParrotPEReportMessages" EntityType="Self.ParrotPEReportMessage" />
+          <EntitySet Name="ParrotPEReports" EntityType="Self.ParrotPEReport" />
+          <EntitySet Name="RadarRegistrationReports" EntityType="Self.RadarRegistrationReport" />
+          <EntitySet Name="RadarSummaryReports" EntityType="Self.RadarSummaryReport" />
+          <EntitySet Name="RegistrationReports" EntityType="Self.RegistrationReport" />
+          <EntitySet Name="RTQCRadarReports" EntityType="Self.RTQCRadarReport" />
+          <EntitySet Name="RTQCReports" EntityType="Self.RTQCReport" />
+          <EntitySet Name="SystemEventMessaages" EntityType="Self.SystemEventMessaage" />
+          <EntitySet Name="SystemMessageDictionaries" EntityType="Self.SystemMessageDictionary" />
+          <EntitySet Name="TargetSummaryReports" EntityType="Self.TargetSummaryReport" />
+          <AssociationSet Name="FK_ParrotPEReportParrotPEReportMessage" Association="Self.FK_ParrotPEReportParrotPEReportMessage">
+            <End Role="ParrotPEReports" EntitySet="ParrotPEReports" />
+            <End Role="ParrotPEReportMessages" EntitySet="ParrotPEReportMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegistrationReportRadarRegistrationReport" Association="Self.FK_RegistrationReportRadarRegistrationReport">
+            <End Role="RegistrationReports" EntitySet="RegistrationReports" />
+            <End Role="RadarRegistrationReports" EntitySet="RadarRegistrationReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TargetSummaryReportRadarSummaryReport" Association="Self.FK_TargetSummaryReportRadarSummaryReport">
+            <End Role="TargetSummaryReports" EntitySet="TargetSummaryReports" />
+            <End Role="RadarSummaryReports" EntitySet="RadarSummaryReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RTQCReportRTQCRadarReport" Association="Self.FK_RTQCReportRTQCRadarReport">
+            <End Role="RTQCReports" EntitySet="RTQCReports" />
+            <End Role="RTQCRadarReports" EntitySet="RTQCRadarReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemMessageDictionaryEntrySystemEventMessaage" Association="Self.FK_SystemMessageDictionaryEntrySystemEventMessaage">
+            <End Role="SystemMessageDictionary" EntitySet="SystemMessageDictionaries" />
+            <End Role="SystemEventMessaages" EntitySet="SystemEventMessaages" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="STARSdbModelStoreContainer" CdmEntityContainer="STARSdbEntity">
+          <EntitySetMapping Name="ParrotPEReportMessages">
+            <EntityTypeMapping TypeName="STARSdbModel.ParrotPEReportMessage">
+              <MappingFragment StoreEntitySet="ParrotPEReportMessages">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Radar" ColumnName="Radar" />
+                <ScalarProperty Name="Target" ColumnName="Target" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="AdaptedRange" ColumnName="AdaptedRange" />
+                <ScalarProperty Name="MeanRange" ColumnName="MeanRange" />
+                <ScalarProperty Name="StdDevRange" ColumnName="StdDevRange" />
+                <ScalarProperty Name="AdaptedAzimuth" ColumnName="AdaptedAzimuth" />
+                <ScalarProperty Name="MeanAzimuth" ColumnName="MeanAzimuth" />
+                <ScalarProperty Name="StdDevAzimuth" ColumnName="StdDevAzimuth" />
+                <ScalarProperty Name="Reliability" ColumnName="Reliability" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="ParrotPEReportReportID" ColumnName="ParrotPEReportReportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParrotPEReports">
+            <EntityTypeMapping TypeName="STARSdbModel.ParrotPEReport">
+              <MappingFragment StoreEntitySet="ParrotPEReports">
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="ImportTimestamp" ColumnName="ImportTimestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RadarRegistrationReports">
+            <EntityTypeMapping TypeName="STARSdbModel.RadarRegistrationReport">
+              <MappingFragment StoreEntitySet="RadarRegistrationReports">
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="Radar" ColumnName="Radar" />
+                <ScalarProperty Name="TestRadar" ColumnName="TestRadar" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="CurrentSampleSize" ColumnName="CurrentSampleSize" />
+                <ScalarProperty Name="AdaptedSampleSize" ColumnName="AdaptedSampleSize" />
+                <ScalarProperty Name="RecommendedRange" ColumnName="RecommendedRange" />
+                <ScalarProperty Name="DifferenceRange" ColumnName="DifferenceRange" />
+                <ScalarProperty Name="RecommendedAzimuth" ColumnName="RecommendedAzimuth" />
+                <ScalarProperty Name="DifferenceAzimuth" ColumnName="DifferenceAzimuth" />
+                <ScalarProperty Name="RegistrationReportReportID" ColumnName="RegistrationReportReportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RadarSummaryReports">
+            <EntityTypeMapping TypeName="STARSdbModel.RadarSummaryReport">
+              <MappingFragment StoreEntitySet="RadarSummaryReports">
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="Radar" ColumnName="Radar" />
+                <ScalarProperty Name="ReportMessages" ColumnName="ReportMessages" />
+                <ScalarProperty Name="Seconds" ColumnName="Seconds" />
+                <ScalarProperty Name="Scans" ColumnName="Scans" />
+                <ScalarProperty Name="RadarOnly" ColumnName="RadarOnly" />
+                <ScalarProperty Name="BeaconOnly" ColumnName="BeaconOnly" />
+                <ScalarProperty Name="RadarReinforcedBeacon" ColumnName="RadarReinforcedBeacon" />
+                <ScalarProperty Name="InvalidMode2" ColumnName="InvalidMode2" />
+                <ScalarProperty Name="InvalidMode3A" ColumnName="InvalidMode3A" />
+                <ScalarProperty Name="InvalidModeC" ColumnName="InvalidModeC" />
+                <ScalarProperty Name="Correlated" ColumnName="Correlated" />
+                <ScalarProperty Name="Uncorrelated" ColumnName="Uncorrelated" />
+                <ScalarProperty Name="ReflectionSurpressed" ColumnName="ReflectionSurpressed" />
+                <ScalarProperty Name="MosaicFiltered" ColumnName="MosaicFiltered" />
+                <ScalarProperty Name="TotalFiltered" ColumnName="TotalFiltered" />
+                <ScalarProperty Name="GeographicFiltered" ColumnName="GeographicFiltered" />
+                <ScalarProperty Name="RunLength" ColumnName="RunLength" />
+                <ScalarProperty Name="Confidence" ColumnName="Confidence" />
+                <ScalarProperty Name="ErrorRatesSeconds" ColumnName="ErrorRatesSeconds" />
+                <ScalarProperty Name="InterfaceAPercentage" ColumnName="InterfaceAPercentage" />
+                <ScalarProperty Name="InterfaceBPercentage" ColumnName="InterfaceBPercentage" />
+                <ScalarProperty Name="TargetSummaryReportReportID" ColumnName="TargetSummaryReportReportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistrationReports">
+            <EntityTypeMapping TypeName="STARSdbModel.RegistrationReport">
+              <MappingFragment StoreEntitySet="RegistrationReports">
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="ImportTimestamp" ColumnName="ImportTimestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RTQCRadarReports">
+            <EntityTypeMapping TypeName="STARSdbModel.RTQCRadarReport">
+              <MappingFragment StoreEntitySet="RTQCRadarReports">
+                <ScalarProperty Name="RadarReportID" ColumnName="RadarReportID" />
+                <ScalarProperty Name="Radar" ColumnName="Radar" />
+                <ScalarProperty Name="SamplingInterval" ColumnName="SamplingInterval" />
+                <ScalarProperty Name="CalculatedScans" ColumnName="CalculatedScans" />
+                <ScalarProperty Name="ReinforcementRate" ColumnName="ReinforcementRate" />
+                <ScalarProperty Name="Mode3AValidity" ColumnName="Mode3AValidity" />
+                <ScalarProperty Name="ModeCValidity" ColumnName="ModeCValidity" />
+                <ScalarProperty Name="SearchRTQCReliability" ColumnName="SearchRTQCReliability" />
+                <ScalarProperty Name="BeaconRTQCReliability" ColumnName="BeaconRTQCReliability" />
+                <ScalarProperty Name="ZeroCode" ColumnName="ZeroCode" />
+                <ScalarProperty Name="SearchBlipScan" ColumnName="SearchBlipScan" />
+                <ScalarProperty Name="BeaconBlipScan" ColumnName="BeaconBlipScan" />
+                <ScalarProperty Name="RangeSplit" ColumnName="RangeSplit" />
+                <ScalarProperty Name="RTQCReportReportID" ColumnName="RTQCReportReportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RTQCReports">
+            <EntityTypeMapping TypeName="STARSdbModel.RTQCReport">
+              <MappingFragment StoreEntitySet="RTQCReports">
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="SampleStartTimestamp" ColumnName="SampleStartTimestamp" />
+                <ScalarProperty Name="SamplingInterval" ColumnName="SamplingInterval" />
+                <ScalarProperty Name="ImportTimestamp" ColumnName="ImportTimestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemEventMessaages">
+            <EntityTypeMapping TypeName="STARSdbModel.SystemEventMessaage">
+              <MappingFragment StoreEntitySet="SystemEventMessaages">
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+                <ScalarProperty Name="MessageNumber" ColumnName="MessageNumber" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemMessageDictionaries">
+            <EntityTypeMapping TypeName="STARSdbModel.SystemMessageDictionary">
+              <MappingFragment StoreEntitySet="SystemMessageDictionary">
+                <ScalarProperty Name="MessageNumber" ColumnName="MessageNumber" />
+                <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+                <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+                <ScalarProperty Name="Cause" ColumnName="Cause" />
+                <ScalarProperty Name="Effect" ColumnName="Effect" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TargetSummaryReports">
+            <EntityTypeMapping TypeName="STARSdbModel.TargetSummaryReport">
+              <MappingFragment StoreEntitySet="TargetSummaryReports">
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="ImportTimestamp" ColumnName="ImportTimestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
